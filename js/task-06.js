@@ -10,13 +10,16 @@
 
 const inputEl = document.querySelector('#validation-input');
 
+function setInputClass (addKey, removeKey) {
+    inputEl.classList.add(addKey);
+    inputEl.classList.remove(removeKey);
+}
+
 function onHandlerBlur(e) {
     if (e.currentTarget.value.length > inputEl.getAttribute('data-length')) {
-        inputEl.classList.add('invalid');
-        inputEl.classList.remove('valid');
+        setInputClass('invalid', 'valid')
     } else {
-        inputEl.classList.add('valid');
-        inputEl.classList.remove('invalid');
+        setInputClass('valid', 'invalid')
     }
 }
 
